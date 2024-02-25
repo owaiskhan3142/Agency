@@ -47,7 +47,6 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <Login />
       </ScrollView>
     </SafeAreaView>
