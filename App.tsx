@@ -53,12 +53,13 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <NavigationContainer initialRouteName="Register">
+        {/* <NavigationContainer initialRouteName="Register">
           <Tab.Navigator>
             <Tab.Screen name="Login" component={Login} />
             <Tab.Screen name="Register" component={Register} />
           </Tab.Navigator>
-        </NavigationContainer>
+        </NavigationContainer> */}
+        <Register />
       </ScrollView>
     </SafeAreaView>
   );

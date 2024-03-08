@@ -10,15 +10,42 @@ import {
 import React from 'react';
 import {wp, hp} from '../utils/helper';
 import InputButton from '../components/inputButton';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = React.useState('');
+  const [passwordVisible, setPasswordVisible] = React.useState(false);
   const [password, setPassword] = React.useState('');
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   return (
     <SafeAreaView style={styles.main}>
-      <Text style={styles.heading}>Login</Text>
-      <View style={{marginTop: hp(40)}}>
+      <Text style={styles.heading}>Register</Text>
+      <View style={styles.container}>
+        <View>
+          <Text>First Name</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={setUsername}
+            value={username}
+            placeholder="Enter your email"
+          />
+        </View>
+        <View>
+          <Text>Last Name</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={setPassword}
+            value={password}
+            placeholder="Enter your password"
+            keyboardType="numeric"
+          />
+        </View>
+      </View>
+      <View>
         <Text>E-Mail</Text>
         <TextInput
           style={styles.input}
@@ -35,20 +62,21 @@ const Login = () => {
           placeholder="Enter your password"
           keyboardType="numeric"
         />
-        <TouchableOpacity style={{justifyContent: 'flex-end'}}>
-          <Text style={{textAlign: 'right'}}>Forgot password?</Text>
-        </TouchableOpacity>
-        <InputButton title={'login'} bgcolor="black" />
-      </View>
-      <View style={styles.container}>
-        <InputButton title="Login" bgcolor="black" />
-        <InputButton title="Register" bgcolor="purple" />
+        <Text>Confirm Password</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={setPassword}
+          value={password}
+          placeholder="Enter your password"
+          keyboardType="text"
+        />
+        <InputButton title={'Create Account'} bgcolor="black" />
       </View>
     </SafeAreaView>
   );
 };
 
-export default Login;
+export default Register;
 
 const styles = StyleSheet.create({
   input: {
@@ -61,15 +89,18 @@ const styles = StyleSheet.create({
     marginBottom: hp(20),
     flex: 1,
   },
+  icon: {
+    padding: 10,
+  },
   heading: {
     fontSize: 40,
     color: 'black',
     textAlign: 'center',
   },
   main: {
-    marginTop: hp(150),
-    marginLeft: wp(30),
-    marginRight: wp(30),
+    marginTop: hp(70),
+    marginLeft: wp(15),
+    marginRight: wp(15),
   },
   button: {
     backgroundColor: 'black',
@@ -78,10 +109,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    // paddingHorizontal: 20,
     marginTop: 20,
     flex: 1,
     alignItems: 'center',
-    marginBottom: 20,
+    backgroundColor: 'Purple',
   },
 });
