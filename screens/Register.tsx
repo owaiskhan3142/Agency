@@ -40,8 +40,6 @@ const Register = () => {
             style={styles.input}
             onChangeText={setPassword}
             value={password}
-            placeholder="Enter your password"
-            keyboardType="numeric"
           />
         </View>
       </View>
@@ -68,7 +66,6 @@ const Register = () => {
           onChangeText={setPassword}
           value={password}
           placeholder="Enter your password"
-          keyboardType="text"
         />
         <InputButton title={'Create Account'} bgcolor="black" />
       </View>
@@ -81,7 +78,7 @@ export default Register;
 const styles = StyleSheet.create({
   input: {
     borderColor: 'black',
-    height: 50,
+    // height: 50,
     marginTop: hp(10),
     borderWidth: 1,
     padding: 10,
@@ -111,7 +108,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     // paddingHorizontal: 20,
     marginTop: 20,
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     backgroundColor: 'Purple',
   },
