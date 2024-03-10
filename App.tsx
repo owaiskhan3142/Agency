@@ -41,7 +41,8 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView>
       <StatusBar />
-      <Login />
+      <Register />
+      {/* <Login /> */}
     </SafeAreaView>
   );
 }

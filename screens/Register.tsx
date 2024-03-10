@@ -10,7 +10,8 @@ import {
 import React from 'react';
 import {wp, hp} from '../utils/helper';
 import InputButton from '../components/inputButton';
-import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Register = () => {
   const [username, setUsername] = React.useState('');
@@ -28,18 +29,19 @@ const Register = () => {
         <View>
           <Text>First Name</Text>
           <TextInput
-            style={styles.input}
+            style={styles.inputSmall}
             onChangeText={setUsername}
             value={username}
-            placeholder="Enter your email"
+            placeholder="John"
           />
         </View>
         <View>
           <Text>Last Name</Text>
           <TextInput
-            style={styles.input}
+            style={styles.inputSmall}
             onChangeText={setPassword}
             value={password}
+            placeholder="Doe"
           />
         </View>
       </View>
@@ -67,6 +69,8 @@ const Register = () => {
           value={password}
           placeholder="Enter your password"
         />
+      </View>
+      <View style={{position: 'absolute', width: '100%', bottom: hp(-190)}}>
         <InputButton title={'Create Account'} bgcolor="black" />
       </View>
     </SafeAreaView>
@@ -84,7 +88,17 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 7,
     marginBottom: hp(20),
-    flex: 1,
+    // flex: 1,
+  },
+  inputSmall: {
+    borderColor: 'black',
+    // height: 50,
+    marginTop: hp(10),
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 7,
+    marginBottom: hp(20),
+    width: wp(150),
   },
   icon: {
     padding: 10,
@@ -95,9 +109,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   main: {
-    marginTop: hp(70),
-    marginLeft: wp(15),
-    marginRight: wp(15),
+    marginTop: hp(150),
+    marginLeft: wp(30),
+    marginRight: wp(30),
+    display: 'flex',
   },
   button: {
     backgroundColor: 'black',
@@ -110,6 +125,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     // flex: 1,
     alignItems: 'center',
-    backgroundColor: 'Purple',
+    // backgroundColor: 'Purple',
   },
 });
