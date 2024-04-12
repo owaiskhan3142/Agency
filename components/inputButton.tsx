@@ -1,13 +1,20 @@
-import {StyleSheet, Text, View, TouchableOpacity, Button} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  type TouchableOpacityProps,
+  Button,
+} from 'react-native';
 import React, {FC} from 'react';
 import {wp, hp} from '../utils/helper';
 
-interface InputButtonProps {
+interface InputButtonProps extends TouchableOpacityProps {
   title: string;
   bgcolor?: string;
 }
 
-const InputButton: FC<InputButtonProps> = ({title, bgcolor}) => {
+const InputButton: FC<InputButtonProps> = ({title, bgcolor, ...props}) => {
   return (
     <View>
       <TouchableOpacity
@@ -18,7 +25,7 @@ const InputButton: FC<InputButtonProps> = ({title, bgcolor}) => {
           height: hp(50),
           paddingVertical: 10,
           paddingHorizontal: 20,
-          width: '100%',
+          // width: '100%',
         }}>
         <Text
           style={{

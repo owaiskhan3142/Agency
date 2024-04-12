@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Button,
+  KeyboardAvoidingView,
 } from 'react-native';
 import React from 'react';
 import {wp, hp} from '../utils/helper';
@@ -22,10 +23,10 @@ const Login = () => {
   };
 
   return (
-    <SafeAreaView style={styles.main}>
-      <Text style={styles.heading}>Login</Text>
-      <View style={{marginTop: hp(40)}}>
-        <Text style={{color: 'white'}}>E-Mail</Text>
+    <KeyboardAvoidingView style={styles.main}>
+      <View style={{marginTop: hp(100)}}>
+        <Text style={styles.heading}>Login</Text>
+        <Text>E-Mail</Text>
         <TextInput
           style={styles.input}
           onChangeText={setUsername}
@@ -41,24 +42,39 @@ const Login = () => {
             placeholder="Enter your password"
             keyboardType="numeric"
           />
-          {/* <MaterialCommunityIcons
-            name={showPassword ? 'eye-off' : 'eye'}
-            size={24}
-            color="#aaa"
-            style={styles.icon}
-            onPress={toggleShowPassword}
-          /> */}
         </View>
         <TouchableOpacity style={{justifyContent: 'flex-end'}}>
           <Text style={{textAlign: 'right'}}>Forgot password?</Text>
         </TouchableOpacity>
-        <InputButton title={'login'} bgcolor="black" />
+        <InputButton title={'Login'} bgcolor="black" />
       </View>
       <View style={styles.container}>
-        <InputButton title="Login" bgcolor="black" />
-        <InputButton title="Register" bgcolor="purple" />
+        <View>
+          {/* <InputButton title={'Register'} bgcolor="black" />
+           */}
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'black',
+              paddingHorizontal: wp(50),
+              paddingVertical: hp(10),
+              borderRadius: 50,
+            }}>
+            <Text style={{color: 'white'}}>Register</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'black',
+              paddingHorizontal: wp(50),
+              paddingVertical: hp(10),
+              borderRadius: 50,
+            }}>
+            <Text style={{color: 'white'}}>Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -67,24 +83,21 @@ export default Login;
 const styles = StyleSheet.create({
   input: {
     borderColor: 'black',
-    // height: ,
     marginTop: hp(10),
     borderWidth: 1,
     padding: 10,
     borderRadius: 7,
     marginBottom: hp(20),
-    // flex: 1,
   },
   heading: {
     fontSize: 40,
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
   },
   main: {
-    marginTop: hp(150),
-    marginLeft: wp(30),
-    marginRight: wp(30),
-    display: 'flex',
+    marginLeft: wp(20),
+    marginRight: wp(20),
+    height: '100%',
   },
   button: {
     backgroundColor: 'black',
@@ -94,20 +107,13 @@ const styles = StyleSheet.create({
   },
   pass: {
     flexDirection: 'column',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // backgroundColor: '#f3f3f3',
     borderRadius: 8,
-    // paddingHorizontal: 14,
   },
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 80,
-    marginTop: 20,
-    bottom: -250,
-    // flex: 1,
-    alignItems: 'center',
-    // marginBottom: 20,
+    position: 'absolute',
+    bottom: 15,
+    width: '100%',
   },
 });
