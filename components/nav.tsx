@@ -9,7 +9,6 @@ import {
 import React, {FC} from 'react';
 import {wp, hp} from '../utils/helper';
 import InputButton from './inputButton';
-import {text} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import {
@@ -19,20 +18,31 @@ import {
   faBorderAll,
   faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
+import InputBox from './InputBox';
 
 interface navProps {
   isSearch?: boolean;
   page: string;
   photo?: ImageSourcePropType;
+  navigation?: any;
 }
 
-const Nav: FC<navProps> = ({isSearch, page}) => {
+const Nav: FC<navProps> = ({isSearch, page, navigation}) => {
   return (
-    <View style={styles.main}>
-      <TouchableOpacity style={styles.navBtn}>
-        <FontAwesomeIcon icon={faChevronLeft as IconProp} color="white" />
-      </TouchableOpacity>
-      <Text style={styles.text}>{page}</Text>
+    <View>
+      {page == 'Home' ? (
+        <View style={styles.main}>
+          <InputBox style={{backgroundColor: 'white'}} />
+          <Text style={styles.text}>{page}</Text>
+        </View>
+      ) : (
+        <View style={styles.main}>
+          <TouchableOpacity style={styles.navBtn}>
+            <FontAwesomeIcon icon={faChevronLeft as IconProp} color="white" />
+          </TouchableOpacity>
+          <Text style={styles.text}>{page}</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -40,19 +50,29 @@ const Nav: FC<navProps> = ({isSearch, page}) => {
 export default Nav;
 
 const styles = StyleSheet.create({
-  main: {
+  HomeNav: {
     height: hp(100),
     backgroundColor: 'black',
-    // paddingTop: hp(30),
     borderEndEndRadius: 50,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
     flexDirection: 'row',
-    alignItems: 'center', //Centered horizontally
+    alignItems: 'center',
+  },
+  main: {
+    height: hp(100),
+    backgroundColor: 'black',
+    borderEndEndRadius: 50,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   text: {
     color: 'white',
-    marginLeft: wp(100),
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
     fontSize: 26,
   },
   navBtn: {

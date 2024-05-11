@@ -107,7 +107,13 @@ const Register = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{position: 'absolute', width: '100%', bottom: hp(-120)}}>
+        <View
+          style={{
+            position: 'absolute',
+            width: '100%',
+            bottom: hp(-80),
+            backgroundColor: 'blue',
+          }}>
           <TouchableOpacity onPress={handelSubmit}>
             <InputButton
               title={'Create Account'}

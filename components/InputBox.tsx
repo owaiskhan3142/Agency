@@ -5,27 +5,34 @@ import {
   TouchableOpacity,
   Button,
   TextInput,
+  TextInputProps,
 } from 'react-native';
-import React from 'react';
+import React, {FC} from 'react';
+import {wp, hp} from '../utils/helper';
 
-interface PictureInputProps {
-  icon?: string;
+interface InputButtonProps extends TextInputProps {
+  placeholder?: string;
+  border?: number;
 }
 
-export default function input() {
+const InputBox: FC<InputButtonProps> = ({placeholder, border, ...props}) => {
   return (
     <View>
       <TextInput
-        style={styles.inputSmall}
-        onChangeText={setLast}
-        value={last}
+        style={{
+          borderColor: 'black',
+          marginTop: hp(20),
+          borderWidth: 1,
+          padding: 10,
+          borderRadius: border,
+          // marginBottom: hp(20),
+        }}
+        placeholder={placeholder}
       />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: 'black',
-  },
-});
+export default InputBox;
+
+const styles = StyleSheet.create({});

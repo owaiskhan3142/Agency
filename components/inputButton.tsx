@@ -22,7 +22,7 @@ const InputButton: FC<InputButtonProps> = ({title, bgcolor, ...props}) => {
           marginTop: hp(10),
           borderRadius: 20,
           backgroundColor: bgcolor,
-          height: hp(50),
+          height: hp(40),
           paddingVertical: 10,
           paddingHorizontal: 20,
           // width: '100%',

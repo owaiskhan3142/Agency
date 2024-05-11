@@ -51,22 +51,23 @@ const DATA2 = [
   },
 ];
 
-const Login = () => {
+const Categories = () => {
   return (
     <View>
-      <Nav page="Categories" />
+      {/* <Nav page="Categories" /> */}
       <FlatList
         data={DATA2}
         renderItem={({item}) => (
           <CategoryCard title={item.title} photo={item.photo} />
         )}
         keyExtractor={item => item.id}
-        style={{marginHorizontal: wp(20), marginTop: DATA2[0] ? hp(40) : hp(0)}}
+        showsVerticalScrollIndicator={false}
+        style={{marginHorizontal: wp(20)}}
       />
     </View>
   );
 };
 
-export default Login;
+export default Categories;
 
 const styles = StyleSheet.create({});

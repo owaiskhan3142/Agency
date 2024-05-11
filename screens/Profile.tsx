@@ -54,15 +54,11 @@ const Profile = () => {
           alignItems: 'center',
           marginTop: hp(10),
           flexDirection: 'row',
-          // backgroundColor: 'pink',
-          // // width: 'fit-content',
-          // flex: 1,
-          // alignSelf: 'flex-start',
         }}>
         <View>
           <Image
-            source={require('../assets/user.png')}
-            style={{width: wp(100), height: hp(100)}}
+            source={require('../assets/user.jpg')}
+            style={{width: wp(100), height: hp(100), borderRadius: 50}}
           />
           <TouchableOpacity
             style={{
@@ -84,32 +80,103 @@ const Profile = () => {
           </TouchableOpacity>
         </View>
       </View>
+      <View style={{justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={styles.heading}>Owais</Text>
+        <Text>owaiskhan314@yahoo.com</Text>
+      </View>
       <KeyboardAvoidingView style={styles.main}>
         <ScrollView>
+          <View style={styles.inputBox}>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              Full Name
+            </Text>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              Owais Khan
+            </Text>
+          </View>
+          <View style={styles.inputBox}>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              Nick Name
+            </Text>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              SwitchRex
+            </Text>
+          </View>
+          <View style={styles.inputBox}>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              Label
+            </Text>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              owaiskhan314@yahoo.com
+            </Text>
+          </View>
+          <View style={styles.inputBox}>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              Phone Number
+            </Text>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              owaiskhan314@yahoo.com
+            </Text>
+          </View>
           <View style={styles.container}>
-            <View>
-              <Text>First Name</Text>
-              <TextInput
-                style={styles.inputSmall}
-                onChangeText={setFirst}
-                value={first}
-                placeholder="John"
-              />
+            <View style={styles.inputBox}>
+              <Text
+                style={{
+                  color: 'black',
+                }}>
+                Country
+              </Text>
+              <Text style={styles.inputSmall}>Pakistan</Text>
             </View>
-            <View>
-              <Text>Last Name</Text>
-              <TextInput
-                style={styles.inputSmall}
-                onChangeText={setLast}
-                value={last}
-                placeholder="Doe"
-              />
+            <View style={styles.inputBox}>
+              <Text
+                style={{
+                  color: 'black',
+                }}>
+                Gender
+              </Text>
+              <Text style={styles.inputSmall}>Male</Text>
             </View>
           </View>
           <View style={styles.inputBox}>
-            <Text>E-Mail</Text>
-            <TextInput style={styles.input} placeholder="Enter your email" />
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              E-Mail
+            </Text>
+            <Text
+              style={{
+                color: 'black',
+              }}>
+              owaiskhan314@yahoo.com
+            </Text>
           </View>
+          <InputButton title="Logout" />
         </ScrollView>
       </KeyboardAvoidingView>
     </View>
@@ -119,39 +186,30 @@ const Profile = () => {
 export default Profile;
 
 const styles = StyleSheet.create({
-  input: {
-    marginTop: hp(10),
-    // borderColor: 'black',
-    // borderWidth: 1,
-    // padding: 10,
-    // borderRadius: 50,
-    marginBottom: hp(20),
-    // flex: 1,
-  },
   inputBox: {
+    // backgroundColor: 'blue',
     paddingStart: wp(25),
     borderColor: 'black',
     borderWidth: 1,
-    height: hp(70),
+    height: hp(45),
     borderRadius: 50,
-    // paddingVertical: hp(5),
+    paddingVertical: hp(3),
+    marginBottom: hp(20),
+    color: 'black',
   },
   inputSmall: {
-    borderColor: 'black',
-    marginTop: hp(10),
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 50,
-    marginBottom: hp(20),
-    width: wp(150),
+    width: wp(120),
+    color: 'black',
+  },
+  heading: {
+    fontSize: 40,
+    color: 'black',
+    textAlign: 'center',
   },
   icon: {
     padding: 10,
   },
   passField: {
-    // alignContent: 'center',
-    // alignItems: 'center'
-
     marginTop: hp(10),
     marginBottom: hp(10),
     borderWidth: 1,
@@ -162,38 +220,15 @@ const styles = StyleSheet.create({
     paddingStart: wp(10),
     paddingEnd: wp(10),
   },
-  heading: {
-    fontSize: 40,
-    color: 'black',
-    textAlign: 'center',
-  },
   main: {
-    marginTop: hp(100),
+    marginTop: hp(30),
     marginLeft: wp(30),
     marginRight: wp(30),
     display: 'flex',
   },
-  button: {
-    backgroundColor: 'black',
-  },
-  passInput: {
-    // borderColor: 'black',
-    // height: 50,
-    // marginTop: hp(10),
-    // borderWidth: 1,
-    // padding: 10,
-    // borderRadius: 7,
-    // marginBottom: hp(20),
-    // flex: 1,
-  },
-
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // paddingHorizontal: 20,
-    marginTop: 20,
-    // flex: 1,
     alignItems: 'center',
-    // backgroundColor: 'Purple',
   },
 });

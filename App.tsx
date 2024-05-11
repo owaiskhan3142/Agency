@@ -1,14 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React, {Profiler} from 'react';
+import React, {Profiler, ReactNode} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   Platform,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,18 +11,23 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
+import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import {
-  faAdd,
-  faArrowAltCircleRight,
-  faBorderAll,
+  faChevronLeft,
   faHome,
+  faAdd,
   faStar,
+  faPortrait,
+  faUser,
+  faHeart,
+  faStarHalfStroke,
 } from '@fortawesome/free-solid-svg-icons';
+import {wp, hp} from './utils/helper';
+import AppStack from './screens/Appstack';
 
 import {
   Colors,
@@ -43,10 +42,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './screens/Home';
 import Categories from './screens/Categories';
 import Profile from './screens/Profile';
+import AddStart from './screens/AddStart';
+import CreateListing from './screens/CreateListing';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+interface HeaderBackButtonProps {
+  // Define your props here
+}
 
 const Tab = createBottomTabNavigator();
 
@@ -59,17 +63,17 @@ const screenOptions = {
     right: 0,
     left: 0,
     elevation: 0,
-    height: 60,
+    height: 200,
   },
 };
 
 function App(): React.JSX.Element {
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={AppStack}
           options={{
             headerShown: false,
             tabBarIcon: ({focused}) => {
@@ -90,7 +94,7 @@ function App(): React.JSX.Element {
         />
         <Tab.Screen
           name="Login"
-          component={Login}
+          component={CreateListing}
           options={{
             headerShown: false,
 
@@ -106,7 +110,7 @@ function App(): React.JSX.Element {
                     borderRightColor: 'blue',
                   }}>
                   <FontAwesomeIcon
-                    icon={faAdd as IconProp}
+                    icon={faStar as IconProp}
                     color={focused ? 'black' : 'grey'}
                   />
                 </View>
@@ -115,8 +119,8 @@ function App(): React.JSX.Element {
           }}
         />
         <Tab.Screen
-          name="Register"
-          component={Register}
+          name="LIST YOUR COMPANY"
+          component={AddStart}
           options={{
             headerShown: false,
             tabBarIcon: ({focused}) => {
@@ -142,12 +146,11 @@ function App(): React.JSX.Element {
             },
           }}
         />
-
         <Tab.Screen
           name="Profile"
           component={Profile}
           options={{
-            title: 'Home',
+            title: 'MY ADS',
             headerShown: false,
 
             tabBarIcon: ({focused}) => {
@@ -164,7 +167,7 @@ function App(): React.JSX.Element {
                     // backgroundColor: 'blue',
                   }}>
                   <FontAwesomeIcon
-                    icon={faAdd as IconProp}
+                    icon={faHeart as IconProp}
                     color={focused ? 'black' : 'grey'}
                   />
                 </View>
@@ -173,8 +176,8 @@ function App(): React.JSX.Element {
           }}
         />
         <Tab.Screen
-          name="Categories"
-          component={Categories}
+          name="ACCOUNT"
+          component={CreateListing}
           options={{
             headerShown: false,
             tabBarIcon: ({focused}) => {
@@ -185,7 +188,7 @@ function App(): React.JSX.Element {
                     justifyContent: 'center',
                   }}>
                   <FontAwesomeIcon
-                    icon={faStar as IconProp}
+                    icon={faUser as IconProp}
                     color={focused ? 'black' : 'grey'}
                   />
                 </View>

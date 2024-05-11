@@ -28,7 +28,7 @@ const DATA = [
   {
     id: '1',
     title: 'Sherwin-Williams',
-    description: 'hehe',
+    description: 'hehe.....',
     review: 23,
     photo: [
       '../assets/plumber.jpg',
@@ -41,7 +41,7 @@ const DATA = [
   {
     id: '2',
     title: 'Testing',
-    description: 'haha',
+    description: 'haha....',
     review: 23,
     photo: [
       '../assets/plumber.jpg',
@@ -55,7 +55,7 @@ const DATA = [
   {
     id: '3',
     title: 'Testing',
-    description: 'lkia ho raha',
+    description: 'lkia ho raha.....',
     review: 23,
     photo: [
       '../assets/plumber.jpg',
@@ -72,7 +72,7 @@ const DATA = [
   {
     id: '4',
     title: 'Testing',
-    description: 'hehe',
+    description: 'hehe....',
     review: 45623,
     photo: [
       '../assets/plumber.jpg',
@@ -95,7 +95,7 @@ const DATA = [
   {
     id: '5',
     title: 'Testing',
-    description: 'hehe',
+    description: 'hehe.....',
     review: 2333,
     photo: [
       '../assets/plumber.jpg',
@@ -121,7 +121,7 @@ const DATA = [
   {
     id: '6',
     title: 'first 29',
-    description: 'hehe',
+    description: 'hehe....',
     review: 29,
     photo: [
       '../assets/plumber.jpg',
@@ -225,8 +225,7 @@ const DATA2 = [
   },
 ];
 
-const Home = () => {
-  const navigation = useNavigation();
+const Home = ({navigation}: {navigation: any}) => {
   const len = DATA2.length;
   console.log(len);
   return (
@@ -243,7 +242,9 @@ const Home = () => {
           flexDirection: 'row',
         }}>
         <FontAwesomeIcon icon={faLocationDot as IconProp} />
-        <Text style={{marginLeft: 5}}>3H - 815 Street, Canada</Text>
+        <Text style={{marginLeft: 5, color: 'black'}}>
+          3H - 815 Street, Canada
+        </Text>
       </View>
       <View
         style={{
@@ -254,8 +255,8 @@ const Home = () => {
           marginBottom: hp(10),
         }}>
         <Text style={{color: 'black'}}>Browse Categories {len}+</Text>
-        <TouchableOpacity>
-          <Text>See all</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Categories')}>
+          <Text style={{color: 'black'}}>See all</Text>
         </TouchableOpacity>
       </View>
       <FlatList
@@ -273,7 +274,6 @@ const Home = () => {
           marginLeft: wp(20),
           color: 'black',
           fontSize: 24,
-          // marginTop: hp(20),
         }}>
         Corporate Listing
       </Text>

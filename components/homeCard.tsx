@@ -10,7 +10,15 @@ import {
 import React, {FC, useState} from 'react';
 import InputButton from '../components/inputButton';
 import {wp, hp} from '../utils/helper';
-import {faPhp} from '@fortawesome/free-brands-svg-icons';
+// import {faLocation} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {IconProp} from '@fortawesome/fontawesome-svg-core';
+import {
+  faLocationDot,
+  faStar,
+  faStarHalfStroke,
+} from '@fortawesome/free-solid-svg-icons';
+import {faStarHalf} from '@fortawesome/free-regular-svg-icons/faStarHalf';
 
 interface HomeProps {
   photo: Array<string>;
@@ -86,8 +94,20 @@ const HomeCard: FC<HomeProps> = ({photo, title, description, review}) => {
         }}>
         <View>
           <Text style={{color: 'black'}}>{title}</Text>
-          <Text style={{color: 'black'}}>{description}</Text>
-          <Text style={{color: 'black'}}>{review} Reviews</Text>
+          <View style={{flexDirection: 'row'}}>
+            <FontAwesomeIcon icon={faLocationDot as IconProp} />
+            <Text style={{color: 'black'}}>{description}</Text>
+          </View>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection: 'row'}}>
+              <FontAwesomeIcon icon={faStar as IconProp} />
+              <FontAwesomeIcon icon={faStar as IconProp} />
+              <FontAwesomeIcon icon={faStar as IconProp} />
+              <FontAwesomeIcon icon={faStarHalfStroke as IconProp} />
+            </View>
+
+            <Text style={{color: 'black'}}>{review} Reviews</Text>
+          </View>
         </View>
         <View>
           <View style={{justifyContent: 'flex-end'}}>

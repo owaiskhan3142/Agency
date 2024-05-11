@@ -13,7 +13,7 @@ import {wp, hp} from '../utils/helper';
 import InputButton from '../components/inputButton';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 
-const Login = () => {
+const Login = ({navigation}: {navigation: any}) => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
@@ -53,6 +53,9 @@ const Login = () => {
           {/* <InputButton title={'Register'} bgcolor="black" />
            */}
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Register');
+            }}
             style={{
               backgroundColor: 'black',
               paddingHorizontal: wp(50),
@@ -64,6 +67,9 @@ const Login = () => {
         </View>
         <View>
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Home');
+            }}
             style={{
               backgroundColor: 'black',
               paddingHorizontal: wp(50),
